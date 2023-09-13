@@ -1,7 +1,7 @@
 import java.lang.System;
 import java.util.Scanner;
 
-public class Main 
+public class Score
 {
 	// 프로그램 시작 
 	public static void main( String[] args ) 

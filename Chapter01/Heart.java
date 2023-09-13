@@ -1,6 +1,6 @@
 import java.lang.System; 												
 
-public class Main  															
+public class Heart  															
 {
 	// 프로그램시작 
 	public static void main( String[] args )  								

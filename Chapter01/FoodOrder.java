@@ -1,7 +1,7 @@
 import java.lang.System;							
 import java.util.Scanner;							
 
-public class Main 
+public class FoodOrder 
 {
 	// 프로그램시작 
 	public static void main( String[] args )  						

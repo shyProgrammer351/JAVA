@@ -2,7 +2,7 @@ import java.lang.System;
 import java.util.Scanner;
 import java.lang.Math;										
 
-public class Main 
+public class FlipCoin 
 {
 
 	// 프로그램 시작 
