@@ -84,7 +84,7 @@ class RetroTV
 
 public class RetroTV_Main 								
 {
-	// 프로그램시작 
+	// 프로그램 시작 
 	public static void main( String[] args ) 	
 	{
 		// 변수 초기화

@@ -29,7 +29,7 @@ class RockPaperScissors
 	 * @param scan : 키보드 입력을 위한 Scanner 변수 전달
 	 * @return 가위바위보 게임을 진행한 결과
 	 */
-	// 가위바위보 게임 진행하는 메서드 시작 
+	// 가위바위보 게임 진행하는 메서드 
 	public String play( Scanner scan )						
 	{	
 		// 플레이어 A는 키보드에서 입력받아 가위바위보 선택  
@@ -41,7 +41,6 @@ class RockPaperScissors
 		// 가위바위보 게임을 진행한 결과를 반환 
 		String result = getResult( this.playerA, this.playerB );
 
-		// 가위바위보 게임 진행하는 메서드 종료 
 		return result;
 	}
 	
@@ -155,7 +154,7 @@ class RockPaperScissors
 	}
 }
 
-public class Main							
+public class RockPaperScissors_Main							
 {
 	// 프로그램시작 
 	public static void RockPaperScissors_Main(String[] args) 	

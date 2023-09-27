@@ -2,7 +2,7 @@ import java.util.Scanner;
 		
 class RecursiveFactorial 
 {
-	// 1부터 n까지의 곱을 계산하는 함수 시작 
+	// 1부터 n까지의 곱을 계산하는 메서드 
 	int factorial( int num )	
 	{
 		// n이 1 이하이면 !(factorial) 연산 종료 
@@ -17,7 +17,6 @@ class RecursiveFactorial
 			System.out.print ( num + " * " );
 			return num *= factorial( num - 1 );
 		}
-	// 1부터 n까지의 곱을 계산하는 함수 종료 
 	}
 	
 	int getNum( Scanner scan )
@@ -25,8 +24,7 @@ class RecursiveFactorial
 		int num = 0;	
 	
 		System.out.print( "숫자를 입력하세요: ");
-		num = scan.nextInt();
-	
+		num = scan.nextInt();		
 		return num;	
 	}
 }

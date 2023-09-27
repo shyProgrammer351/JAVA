@@ -59,7 +59,7 @@ class ThreeCupGame
 	 * @param scan 키보드 입력을 위한 Scanner 객체
 	 * @return 구슬찾기 게임을 진행한 결과
 	 */
-	// 구슬 찾기 게임 진행하는 메서드 시작 
+	// 구슬 찾기 게임 진행하는 메서드 
 	public String play( Scanner scan )				
 	{	
 		// 컵 3개 중 하나에 임의로 구슬을 숨기기 
@@ -68,7 +68,6 @@ class ThreeCupGame
 		int player = selectCup( scan );
 		// 구슬찾기 게임의 승패를 판정 
 		String result = getResult( player, ball );
-		// 구슬 찾기 게임 진행하는 메서드 종료 
 		return result;	
 	}
 

@@ -17,7 +17,7 @@ class Chatbot
 	{
 	}
 
-		// 챗봇 답변을 생성하는 메서드 시작					
+	// 챗봇 답변을 생성하는 메서드 					
 	public String getResponse( String userUtterance ) 
 	{
 		// 챗봇 시작시 사용자에게 말 걸기  					
@@ -42,7 +42,6 @@ class Chatbot
 
 		// 적절한 답변을 못 찾으면 '뭐 딴거 재밌는거 없을까?' 출력 
 		return "(시스템) 뭐 딴거 재밌는거 없을까?";		
-		// 챗봇 답변을 생성하는 메서드 종료 					
 	}
 
 	public String getFinalResponse()

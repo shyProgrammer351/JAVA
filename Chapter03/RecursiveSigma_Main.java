@@ -2,7 +2,7 @@ import java.util.Scanner;
 	
 class RecursiveSigma 
 {
-	// 0부터 n까지의 합계 계산하는 함수 시작 
+	// 0부터 n까지의 합계 계산하는 메서드 
 	int sigma( int num )					
 	{
 		// n이 0 이하이면 Σ 연산 종료 
@@ -17,7 +17,6 @@ class RecursiveSigma
 			System.out.print ( num + " + " );
 			return num += sigma( num - 1 );
 		}
-	// 0부터 n까지의 합계 계산하는 함수 종료 
 	}
 	
 	int getNum( Scanner scan )
@@ -26,8 +25,7 @@ class RecursiveSigma
 	
 		System.out.print( "숫자를 입력하세요: ");
 		num = scan.nextInt();
-	
-			return num;	
+		return num;	
 	}
 }
 	
@@ -51,7 +49,7 @@ public class RecursiveSigma_Main
 		System.out.print( sum ); 
 	
 		//프로그램 종료 
-	return;
+		return;
 	}
 }
 

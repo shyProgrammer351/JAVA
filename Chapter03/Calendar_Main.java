@@ -5,7 +5,7 @@ class Calendar
 	// 월별 말일 		
 	final int lastDayPerMonth[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };  
 	
-	// 해당년도가 윤년인지 평년인지 결정하는 함수 
+	// 해당년도가 윤년인지 평년인지 결정하는 메서드 
 	private boolean IsLeapYear( int year )										
 	{
 		// 400으로 나누어 떨어지는 해는 윤년으로 결정 
@@ -30,7 +30,7 @@ class Calendar
 		}
 	}
 	
-	// 해당달의 말일을 구하는 함수 
+	// 해당달의 말일을 구하는 메서드 
 	public int getLastDay( int month, int year )									
 	{
 		// 해당달이 2월이고 윤년이면, 29일  
@@ -46,7 +46,7 @@ class Calendar
 		}
 	}
 			
-	// 해당년도 1월1일부터 직전달 말일까지 날짜를 계산하는 함수 
+	// 해당년도 1월1일부터 직전달 말일까지 날짜를 계산하는 메서드 
 	private int getTotalDaysBetweenNewYearsDayAnd( int previousMonth, int thisYear )				
 	{
 		int totalDays = 0; 
@@ -66,7 +66,7 @@ class Calendar
 		return totalDays;										
 	}
 	
-	// 해당달의 시작요일을 계산하는 함수 
+	// 해당달의 시작요일을 계산하는 메서드 
 	public int getFirstDay( int month, int year )							
 	{
 		// 1년1월1일부터 직전년도 12월31일까지 전체 날짜를 계산  
@@ -77,7 +77,7 @@ class Calendar
 		return ( (totalDays+1) % 7 );									
 	}
 	
-	// 달력을 출력하는 함수 
+	// 달력을 출력하는 메서드 
 	public void print( int year, int month, int firstDay, int lastDay )				
 	{
 		// 날짜 및 요일 초기화
