@@ -23,7 +23,7 @@ public class BombDodgeGame_Main
 		}
 		
 		System.out.println( "\n게임을 종료합니다. 다음에 또 만나요!" ); 
-		// 프로그램 종료 
+	// 프로그램 종료 
 	}
 }
 
