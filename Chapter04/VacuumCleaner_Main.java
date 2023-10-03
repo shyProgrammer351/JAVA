@@ -9,13 +9,13 @@ public class VacuumCleaner_Main
 		Scanner scan = new Scanner( System.in );
 		String result = "";
 		
-		// RC카 리모컨 객체 생성 	 
+		// 로봇청소기 리모컨 객체 생성 	 
 		RoboticVacuumCleaner cleaner = new RoboticVacuumCleaner();
 
-		// RC카 리모컨의 입력에 따라 RC카을 제어하고 그 결과를 출력	 
+		// 리모컨의 입력에 따라 로봇청소기를 제어하고 그 결과를 출력	 
 		do
 		{
-			System.out.print( "RC카 리모컨의 상, 하, 좌, 우, 전원, 종료 중 하나를 입력하세요 : ");
+			System.out.print( "로봇청소기 리모컨의 상, 하, 좌, 우, 전원, 종료 중 하나를 입력하세요 : ");
 			result = scan.next();
 			
 			// 전원을 입력하면 전원을 켜거나 끄기	 
