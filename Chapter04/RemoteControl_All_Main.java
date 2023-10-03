@@ -11,10 +11,7 @@ public class RemoteControl_All_Main
 		String result = "";
 
 		// 리모컨 객체 생성 	 
-		RemoteControl rc[] = {
-				new TV(),						 								
-				new AirConditioner(),								
-				new RoboticVacuumCleaner() };											
+		RemoteControl rc[] = { new TV(), new AirConditioner(), new RoboticVacuumCleaner() };											
 		
 			// 리모컨의 입력에 따라 TV, 에어컨, 로봇청소기를 제어하고 결과 출력	 
 			do
@@ -27,8 +24,7 @@ public class RemoteControl_All_Main
 				{
 					for ( int i = 0; i < rc.length; i++ )
 					{
-						System.out.println(
-							rc[i].clickPower() );	 
+						System.out.println( rc[i].clickPower() );	 
 					}
 				}
 				// 상 버튼 입력시 TV, 에어컨, 로봇청소기의 기능 작동	 
@@ -36,8 +32,7 @@ public class RemoteControl_All_Main
 				{
 					for ( int i = 0; i < rc.length; i++ )
 					{
-						System.out.println(
-							rc[i].clickUp() );	 
+						System.out.println( rc[i].clickUp() );	 
 					}
 				}
 				// 하 버튼 입력시 TV, 에어컨, 로봇청소기의 기능 작동	 
@@ -45,8 +40,7 @@ public class RemoteControl_All_Main
 				{
 					for ( int i = 0; i < rc.length; i++ )
 					{
-						System.out.println(
-							rc[i].clickDown() );	 
+						System.out.println( rc[i].clickDown() );	 
 					}
 				}
 				// 좌 버튼 입력시 TV, 에어컨, 로봇청소기의 기능 작동	 
@@ -54,8 +48,7 @@ public class RemoteControl_All_Main
 				{
 					for ( int i = 0; i < rc.length; i++ )
 					{
-						System.out.println(
-							rc[i].clickLeft() );	 
+						System.out.println( rc[i].clickLeft() );	 
 					}
 				}
 				// 우 버튼 입력시 TV, 에어컨, 로봇청소기의 기능 작동	 
@@ -63,8 +56,7 @@ public class RemoteControl_All_Main
 				{
 					for ( int i = 0; i < rc.length; i++ )
 					{
-						System.out.println(
-							rc[i].clickRight() );	 
+						System.out.println( rc[i].clickRight() );	 
 					}
 				}				
 
