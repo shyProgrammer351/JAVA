@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import rc.*;
+import remoteControl.*;
 
 public class RemoteControl_All_Main 
 {
