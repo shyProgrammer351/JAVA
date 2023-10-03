@@ -16,7 +16,7 @@ public class BombDodgeGame_Main
 		BombDodgeGame game = new BombDodgeGame();
 			
 		// 폭탄 피하기 게임 진행 	 
-		for( String result = null; 		                          ( result = game.play( scan ) ) != null; )
+		for( String result = null; ( result = game.play( scan ) ) != null; )
 		{
 			// 폭탄 피하기 게임 결과 출력 	 
 			System.out.println( result ); 
