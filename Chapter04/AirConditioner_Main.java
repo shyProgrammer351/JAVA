@@ -21,32 +21,27 @@ public class AirConditioner_Main
 			// 전원을 입력하면 전원을 켜거나 끄기	 
 			if ( result.equals( "전원" ) )
 			{
-				System.out.println(
-				                    aircon.clickPower() );
+				System.out.println( aircon.clickPower() );
 			}
 			// 상을 입력하면 온도를 +1 이동	 
 			else if ( result.equals( "상" ) )
 			{
-				System.out.println(
-				                    aircon.clickUp() );
+				System.out.println( aircon.clickUp() );
 			}
 			// 하를 입력하면 온도를 -1 이동	 
 			else if ( result.equals( "하" ) )
 			{
-				System.out.println(
-				                    aircon.clickDown() );
+				System.out.println( aircon.clickDown() );
 			}
 			// 좌를 입력하면 풍량을 -1 이동	 
 			else if ( result.equals( "좌" ) )
 			{
-				System.out.println(
-				                    aircon.clickLeft() );
+				System.out.println( aircon.clickLeft() );
 			}
 			// 우를 입력하면 풍량을 +1 이동	 
 			else if ( result.equals( "우" ) )
 			{
-				System.out.println(
-				                    aircon.clickRight() );
+				System.out.println( aircon.clickRight() );
 			}				
 
 		} while( !result.equals( "종료" ) );
