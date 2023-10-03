@@ -86,10 +86,7 @@ public class XYpoint_Main
 		}
 		else
 		{
-			System.out.println( 
-			                    origin + "과" 
-			                     + point + "사이의 거리는 "
-			                     + point.distanceTo( origin ) + "입니다" );
+			System.out.println( origin + "과" + point + "사이의 거리는 " + point.distanceTo( origin ) + "입니다" );
 		}
 
 	// 프로그램 종료 
