@@ -69,8 +69,8 @@ class LightBulbPanel extends JPanel
 	public LightBulbPanel()
 	{
 		// 전구가 켜진 이미지와 전구가 꺼진 이미지 준비  
-		lightOn = new ImageIcon ("./Chapter06/image/lightBulbOn.gif");
-		lightOff = new ImageIcon ("./Chapter06/image/lightBulbOff.gif");
+		lightOn = new ImageIcon ("./Chapter05/image/lightBulbOn.gif");
+		lightOff = new ImageIcon ("./Chapter05/image/lightBulbOff.gif");
 		setBackground (Color.black);
 		// 전구가 켜진 이미지로 초기화하여 출력 
 		on = true;
