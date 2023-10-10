@@ -15,7 +15,7 @@ class ReboundPanel extends JPanel
 	{
 		// 타이머 및 스마일 이미지 준비 
 		timer = new Timer(DELAY, new ReboundListener());
-		image = new ImageIcon ("./Chapter06/image/happyFace.gif");
+		image = new ImageIcon ("./Chapter05/image/happyFace.gif");
 		// 이미지 초기 위치, 이동 간격, 이동 가능 영역 설정 
 		x = 0;
 		y = 40;
