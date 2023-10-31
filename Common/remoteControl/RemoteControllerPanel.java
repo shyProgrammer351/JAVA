@@ -54,7 +54,7 @@ public class RemoteControllerPanel extends JPanel implements ActionListener
 	/**
 	 * 리모컨 GUI 초기화 
 	 */
-	public RemoteControllerPanel()					// [주요실행순서 제외]  
+	public RemoteControllerPanel()					  
 	{
 		this.appliance = null;
 
@@ -75,7 +75,7 @@ public class RemoteControllerPanel extends JPanel implements ActionListener
 		this.add( button[DOWN ], BorderLayout.SOUTH );
 		this.add( button[LEFT ], BorderLayout.WEST );
 		this.add( button[RIGHT], BorderLayout.EAST );   
-	} 					// [주요실행순서 제외]
+	} 					
 
 	/**
 	 * 리모컨 버튼을 클릭시 가전제품 상태 업데이트	
@@ -95,6 +95,6 @@ public class RemoteControllerPanel extends JPanel implements ActionListener
 			appliance.clickLeft();
 		else if ( ( event.getSource() == button[RIGHT] ) && ( appliance != null ) )
 			appliance.clickRight();
-	}
+	}	
 }
 

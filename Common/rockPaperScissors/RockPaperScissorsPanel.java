@@ -144,36 +144,26 @@ public class RockPaperScissorsPanel extends JPanel implements ActionListener
 	/**
 	 * 가위바위보 선택 결과를 분석하여 누가 이겼는지 표기
 	 */
-	protected void setGameResult( int playerA, int playerB ) // [주요실행순서 제외]
+	protected void setGameResult() 
 	{
-		String result = game.judge( playerA, playerB );
+		String result = game.judge( playerA[0], playerB[0] );
 		if ( result.contains( "참여자가 이겼습니다" ) )
 		{ 			
-			this.playerA[1] = WIN;
-			this.playerB[1] = BASE;
+			playerA[1] = WIN;
+			playerB[1] = BASE;
 		} 
 		else if ( result.contains( "상대편이 이겼습니다" ) )
 		{ 			
-			this.playerA[1] = BASE;
-			this.playerB[1] = WIN;
+			playerA[1] = BASE;
+			playerB[1] = WIN;
 		} 
 		else
 		{
-			this.playerA[1] = BASE;
-			this.playerB[1] = BASE;	
+			playerA[1] = BASE;
+			playerB[1] = BASE;	
 		}
-	} // [주요실행순서 제외]
-	
-	/**
-	 * 가위바위보 선택 및 승패 결과를 화면에 업데이트
-	 */
-	protected void showGameResult( int playerA, int playerB ) // [주요실행순서 제외]
-	{
-		setGameResult( playerA, playerB );
-		imgPlayerA.setIcon( image[ playerA ][ this.playerA[1] ] );
-		imgPlayerB.setIcon( image[ playerB ][ this.playerB[1] ] );	
-	} // [주요실행순서 제외]
-
+	} 
+		
 	/**
 	 * 참여자가 가위바위보를 선택시 상대편 선택과 비교하여 승패 결과를 제시하고 게임 상황 업데이트 
 	 * @param event : 참여자의 가위바위보 선택 결과 
@@ -184,47 +174,34 @@ public class RockPaperScissorsPanel extends JPanel implements ActionListener
 		playerA[0] = selectRockPaperScissors( event );
 		// 상대편도 임의로 가위바위보 내기 
 		playerB[0] = game.selectRockPaperScissors();
+
 		// 승패 결과를 GUI 화면에 업데이트 
-		showGameResult( playerA[0], playerB[0] );
+		setGameResult();
+		imgPlayerA.setIcon( image[ playerA[0] ][ playerA[1] ] );
+		imgPlayerB.setIcon( image[ playerB[0] ][ playerB[1] ] );	
 		
 		// 다음 판은 잠시 대기 
-		timer.start();		
-		disableSelection();
-	}
-
-	/**
-	 * 참여자의 가위바위보 선택 불허 
-	 */
-	protected void disableSelection() // [주요실행순서 제외]
-	{
 		button[0].setEnabled( false );
 		button[1].setEnabled( false );
 		button[2].setEnabled( false );
-	} // [주요실행순서 제외]
+		timer.start();		
+	}
 	
-	/**
-	 * 참여자의 가위바위보 선택 허용
-	 */
-	protected void enableSelection() // [주요실행순서 제외]
-	{
-		imgPlayerB.setIcon( image[QUESTIONMARK][BASE] );
-		button[0].setEnabled( true );
-		button[1].setEnabled( true );
-		button[2].setEnabled( true );
-	} // [주요실행순서 제외]
-
 	/**
 	 * 타이머 클래스 
 	 */
 	private class TimerListener implements ActionListener 
 	{
 		/**
-		 * 잠시 대기후 다음 판 허용
+		 * 잠시 대기후 다음 판 허용 
 		 */
 		public void actionPerformed( ActionEvent event ) 
 		{
 			timer.stop();		
-			enableSelection();
+			imgPlayerB.setIcon( image[QUESTIONMARK][BASE] );
+			button[0].setEnabled( true );
+			button[1].setEnabled( true );
+			button[2].setEnabled( true );
 		}
 	}
 }	

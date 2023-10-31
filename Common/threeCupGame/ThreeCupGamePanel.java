@@ -118,12 +118,12 @@ public class ThreeCupGamePanel extends JPanel implements ActionListener
 	/**
 	 * 구슬찾기 선택 및 승패 결과를 화면에 업데이트
 	 */
-	protected void showGameResult( int player, int ball ) // [주요실행순서 제외]
+	protected void showGameResult( int player, int ball ) 
 	{
 		cup[ ball ].setIcon( img[ BALL ] ); 
 		if ( player != ball )
 			cup[ player ].setIcon( img[ MISS ] ); 	
-	} // [주요실행순서 제외]
+	} 
 	
 	/**
 	 * 구슬찾기 게임 진행하기 
@@ -140,31 +140,10 @@ public class ThreeCupGamePanel extends JPanel implements ActionListener
 		
 		// 다음 판은 잠시 대기 
 		timer.start();		
-		disableSelection();
-	}	
-	
-	/**
-	 * 구슬찾기 선택 불허 
-	 */
-	protected void disableSelection() // [주요실행순서 제외]
-	{
 		button[0].setEnabled( false );
 		button[1].setEnabled( false );
 		button[2].setEnabled( false );
-	} // [주요실행순서 제외]
-	
-	/**
-	 * 컵에 구슬 숨기고 구슬찾기 선택 허용
-	 */
-	protected void enableSelection() // [주요실행순서 제외]
-	{
-		cup[0].setIcon( img[ BASE ] ); 
-		cup[1].setIcon( img[ BASE ] ); 
-		cup[2].setIcon( img[ BASE ] ); 	
-		button[0].setEnabled( true );
-		button[1].setEnabled( true );
-		button[2].setEnabled( true );
-	} // [주요실행순서 제외]
+	}	
 	
 	/**
 	 * 타이머 클래스 
@@ -172,12 +151,18 @@ public class ThreeCupGamePanel extends JPanel implements ActionListener
 	private class TimerListener implements ActionListener
 	{
 		/**
-		 * 잠시 대기후 다음 판 허용
+		 * 잠시 대기후 다음 판 허용 
 		 */
 		public void actionPerformed( ActionEvent event ) 
 		{
-			timer.stop();		
-			enableSelection();
+			timer.stop();			
+			// 컵에 구슬 숨기고 구슬찾기 선택 허용
+			cup[0].setIcon( img[ BASE ] ); 
+			cup[1].setIcon( img[ BASE ] ); 
+			cup[2].setIcon( img[ BASE ] ); 	
+			button[0].setEnabled( true );
+			button[1].setEnabled( true );
+			button[2].setEnabled( true );
 		}
 	}
 }

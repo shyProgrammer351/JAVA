@@ -51,7 +51,7 @@ public class ChatPanel extends JPanel implements ActionListener
 	@Override
 	public void actionPerformed( ActionEvent e )
 	{
-		// 대화 입력 내용을 가져오기 
+		// 입력창에서 대화 입력 내용을 가져오기 
 		String userUtterance = inputField.getText();
 		inputField.setText( "" );
 		// 대화 입력 내용을 채팅창에 출력 

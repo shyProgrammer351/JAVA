@@ -21,15 +21,6 @@ public class RockPaperScissors
 	 */
 	public final int PAPER = 2;
 
-	/** 
-	 * 가위바위보 참여자의 선택 결과    
-	 */	
-	protected int playerA;
-	/** 
-	 * 가위바위보 상대편의 선택 결과    
-	 */	
-	protected int playerB;
-
 	/**
 	 * 가위바위보 참여자는 키보드에서 입력받고 상대편은 임의로 입력받아 가위바위보 게임의 승패를 판정
 	 * @param scan 키보드 입력을 위한 Scanner 객체
@@ -37,33 +28,22 @@ public class RockPaperScissors
 	 */
 	public String play( Scanner scan )
 	{	
-		this.playerA = selectRockPaperScissors( scan );
-		return play( this.playerA );
-	}
-	
-	/**
-	 * 가위바위보 참여자의 선택 결과는 전달받고 상대편은 임의로 입력받아 가위바위보 게임의 승패를 판정
-	 * @param playerA 가위바위보 참여자의 선택 결과
-	 * @return 가위바위보 게임을 진행한 결과
-	 */
-	public String play( int playerA )
-	{
-		this.playerA = playerA;
-		this.playerB = selectRockPaperScissors();
+		int playerA = selectRockPaperScissors( scan );
+		int playerB = selectRockPaperScissors();
 		
 		String result = "";
-		result += "참여자는 " + getInt2String( playerA ) +"를 냈습니다.\n";
-		result += "상대편은 " + getInt2String( playerB ) +"를 냈습니다.\n";
+		result += "참여자는 " + getString( playerA ) +"를 냈습니다.\n";
+		result += "상대편은 " + getString( playerB ) +"를 냈습니다.\n";
 		result += "판정결과는 " + judge( playerA, playerB ) + "\n";
 		return result;
 	}
 	
 	/**
-	 * 가위바위보 선택 결과(int형)를 문자열로 변환
-	 * @param player 가위바위보 선택 결과(int형)
-	 * @return 가위바위보 선택 결과(문자열)
+	 * 가위바위보 값을 문자열로 표현
+	 * @param player 가위바위보(int형)
+	 * @return 가위바위보(String형) 
 	 */
-	public String getInt2String( int player )
+	public String getString( int player )
 	{
 		if ( player == SCISSORS )
 			return "가위";
@@ -74,11 +54,11 @@ public class RockPaperScissors
 	}
 	
 	/**
-	 * 가위바위보 선택 결과(문자열)를 int형으로 변환
-	 * @param player 가위바위보 선택 결과(문자열)
-	 * @return 가위바위보 선택 결과(int형)
+	 * 가위바위보 값을 숫자로 표현 
+	 * @param player 가위바위보(String형) 
+	 * @return 가위바위보(int형)
 	 */
-	public int getSting2Int( String player )
+	public int getInteger( String player )
 	{
 		if ( player.equals( "가위" ) )
 			return SCISSORS;
@@ -104,7 +84,7 @@ public class RockPaperScissors
 			
 		} while( !player.equals( "가위" ) && !player.equals( "바위" ) && !player.equals( "보" ) );
 			
-		return getSting2Int( player );
+		return getInteger( player );
 	}
 
 	/**
