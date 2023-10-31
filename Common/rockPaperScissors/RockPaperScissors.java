@@ -2,166 +2,142 @@ package rockPaperScissors;
 import java.util.Scanner;
 
 /**
- * RockPaperScissors 클래스는 가위바위보 게임을 모델링
- * @author 박소영
+ * 가위바위보 게임 클래스 
+ * @author So Young Park
+ * @version 0.8
  */
-public class RockPaperScissors	 
+public class RockPaperScissors
 {
-	// 가위, 바위, 보에 해당하는 정수값
-	public final int ROCK = 0; 
-	public final int PAPER = 1;		 
-	public final int SCISSORS = 2;	 
+	/**
+	 * 가위를 나타내는 상수 
+	 */
+	public final int SCISSORS = 0;
+	/**
+	 * 바위를 나타내는 상수 
+	 */
+	public final int ROCK = 1;
+	/**
+	 * 보를 나타내는 상수 
+	 */
+	public final int PAPER = 2;
 
-	// 플레이어 A, 플레이어 B는 가위바위보 중 하나를 값으로 선택
-	private String playerA;		 
-	private String playerB; 
+	/** 
+	 * 가위바위보 참여자의 선택 결과    
+	 */	
+	protected int playerA;
+	/** 
+	 * 가위바위보 상대편의 선택 결과    
+	 */	
+	protected int playerB;
 
 	/**
-	 * 가위바위보 게임을 초기화하는 생성자
+	 * 가위바위보 참여자는 키보드에서 입력받고 상대편은 임의로 입력받아 가위바위보 게임의 승패를 판정
+	 * @param scan 키보드 입력을 위한 Scanner 객체
+	 * @return 가위바위보 게임을 진행한 결과
 	 */
-	public RockPaperScissors()	 
+	public String play( Scanner scan )
 	{	
-		this.playerA = "가위";	 
-		this.playerB = "바위";	 
+		this.playerA = selectRockPaperScissors( scan );
+		return play( this.playerA );
 	}
 	
 	/**
-	 * 플레이어 A 값은 키보드에서 입력받고 플레이어 B 값은 임의로 입력받아 가위바위보 게임의 승패를 판정
-	 * @param scan : 키보드 입력을 위한 Scanner 변수 전달
+	 * 가위바위보 참여자의 선택 결과는 전달받고 상대편은 임의로 입력받아 가위바위보 게임의 승패를 판정
+	 * @param playerA 가위바위보 참여자의 선택 결과
 	 * @return 가위바위보 게임을 진행한 결과
 	 */
-	// 가위바위보 게임 진행하는 메서드 
-	public String play( Scanner scan )	 
-	{	
-		// 플레이어 A는 키보드에서 입력받아 가위바위보 선택  
-		this.playerA = getRockPaperScissors( scan );
-		
-		// 플레이어 B의 임의로 가위바위보 선택 
-		this.playerB = getRockPaperScissors();
-
-		// 가위바위보 게임을 진행한 결과를 반환 
-		String result = getResult( this.playerA, this.playerB );
-
-		return result;
-	}
-	
-	/**
-	 * 플레이어 A 값은 전달받고 플레이어 B 값은 임의로 입력받아 가위바위보 게임의 승패를 판정
-	 * @param playerA : 플레이어 A의 가위바위보 중 하나
-	 * @return 가위바위보 게임을 진행한 결과
-	 */
-	public String play( String playerA )	 
+	public String play( int playerA )
 	{
-		// 플레이어 A는 전달받아 가위바위보 선택
-		this.playerA = playerA;		 
+		this.playerA = playerA;
+		this.playerB = selectRockPaperScissors();
 		
-		// 플레이어 B의 임의로 가위바위보 선택 
-		this.playerB = getRockPaperScissors();
-
-		// 가위바위보 게임을 진행한 결과를 반환
-		String result = getResult( this.playerA, this.playerB );
-
-		return result;
-	}
-	
-	/**
-	 * 가위바위보 게임을 진행한 결과
-	 * @param playerA : 플레이어 A의 가위바위보 중 하나
-	 * @return 가위바위보 게임을 진행한 결과
-	 */
-	private String getResult( String playerA, String playerB )	 
-	{
-		// 플레이어 A와 플레이어 B의 현재 상태 
 		String result = "";
-		result += "플레이어 A는 " + playerA +"를 냈습니다.\n";
-		result += "플레이어 B는 " + playerB +"를 냈습니다.\n";
-		
-		// 플레이어 A와 플레이어 B의 가위바위보 승패 판정 
-		result += "판정결과는 " 
-		                  + judge( playerA, playerB ) + "\n";  
-		
+		result += "참여자는 " + getInt2String( playerA ) +"를 냈습니다.\n";
+		result += "상대편은 " + getInt2String( playerB ) +"를 냈습니다.\n";
+		result += "판정결과는 " + judge( playerA, playerB ) + "\n";
 		return result;
 	}
-
+	
 	/**
-	 * 가위바위보 게임을 진행한 결과
-	 * @return 가위바위보 게임을 진행한 결과
+	 * 가위바위보 선택 결과(int형)를 문자열로 변환
+	 * @param player 가위바위보 선택 결과(int형)
+	 * @return 가위바위보 선택 결과(문자열)
 	 */
-	private String getResult() 
+	public String getInt2String( int player )
 	{
-		return
-		       getResult( this.playerA, this.playerB );		 
+		if ( player == SCISSORS )
+			return "가위";
+		else if ( player == ROCK )
+			return "바위";
+		else
+			return "보"; 
 	}
-
+	
 	/**
-	 * 키보드에서 입력받아 가위바위보 선택
-	 * @param scan : 키보드 입력을 위한 Scanner 변수 전달
-	 * @return 가위바위보 중 하나
+	 * 가위바위보 선택 결과(문자열)를 int형으로 변환
+	 * @param player 가위바위보 선택 결과(문자열)
+	 * @return 가위바위보 선택 결과(int형)
 	 */
-	private String getRockPaperScissors( Scanner scan ) 
+	public int getSting2Int( String player )
 	{
-		String result = "";
+		if ( player.equals( "가위" ) )
+			return SCISSORS;
+		else if ( player.equals( "바위" ) )
+			return ROCK;
+		else
+			return PAPER; 
+	}
+	
+	/**
+	 * 가위바위보 참여자가 입력한 선택 결과 전달 
+	 * @param scan 키보드 입력을 위한 Scanner 객체
+	 * @return 가위바위보 참여자의 선택 결과
+	 */
+	protected int selectRockPaperScissors( Scanner scan )
+	{
+		String player;
 		
 		do
 		{
 			System.out.print( "가위, 바위, 보 중 하나를 입력하세요 : ");
-			result = scan.next();
+			player = scan.next();
 			
-		} while( !result.equals( "가위" ) && !result.equals( "바위" ) && !result.equals( "보" ) );
+		} while( !player.equals( "가위" ) && !player.equals( "바위" ) && !player.equals( "보" ) );
 			
-		return result;
+		return getSting2Int( player );
 	}
 
 	/**
-	 * 임의로 가위바위보 선택
-	 * @return 가위바위보 중 하나
+	 * 임의로 가위바위보 중에서 하나를 선택
+	 * @return 가위(0), 바위(1), 보(2) 중 임의의 값
 	 */
-	private String getRockPaperScissors()			 
+	protected int selectRockPaperScissors()
 	{
-		int num = (int)(Math.random()*3);
-		String result = "";
-		
-		if ( num == SCISSORS )
-		{
-			result = "가위";
-		}
-		else if ( num == ROCK )
-		{
-			result = "바위";
-		}
-		else
-		{
-			result = "보"; 
-		}
-		
-		return result; 
+		return (int)(Math.random()*3);		
 	}
-			
+	
 	/**
-	 * 플레이어 A와 플레이어 B의 가위바위보 승패 판정
-	 * @param playerA : 플레이어 A의 가위바위보 선택 결과
-	 * @param playerB : 플레이어 A의 가위바위보 선택 결과
+	 * 가위바위보 참여자와 상대편의 선택 결과를 바탕으로 승패 판정
+	 * @param playerA 가위바위보 참여자의 선택 결과
+	 * @param playerB 가위바위보 상대편의 선택 결과
 	 * @return 가위바위보 승패 판정 결과
 	 */
-	protected String judge( String playerA, String playerB )	 
+	protected String judge( int playerA, int playerB )
 	{
-		String result = "";
-		if ( playerA.equals( playerB ) )
+		if ( playerA == playerB )
 		{
-			result = "플레이어 A와 플레이어 B가 비겼습니다";
+			return "상대편과 참여자가 비겼습니다";
 		}
-		else if ( ( playerA.equals( "가위" ) && playerB.equals( "보" ) ) 
-				|| ( playerA.equals( "바위" ) && playerB.equals( "가위" ) )
-				|| ( playerA.equals( "보" ) && playerB.equals( "바위" ) ) )
+		else if ( ( ( playerA == SCISSORS ) && ( playerB == PAPER ) )
+				|| ( ( playerA == ROCK ) && ( playerB == SCISSORS ) )
+				|| ( ( playerA == PAPER ) && ( playerB == ROCK ) ) )
 		{
-			result = "플레이어 A가 이겼습니다";
+			return "참여자가 이겼습니다";
 		}
 		else
 		{
-			result = "플레이어 B가 이겼습니다";
+			return "상대편이 이겼습니다";
 		}	
-		
-		return result;
 	}
 }
 
