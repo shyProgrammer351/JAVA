@@ -56,7 +56,7 @@ public class ThreeCupGamePanel extends JPanel implements ActionListener
 	 */
 	public ThreeCupGamePanel() 
 	{
-		// 기본 컵, 구슬이 있는 컵, 구슬찾기에 실패한 컵의 3가지 경우의 이미지를 준비 
+		// 기본 컵, 구슬이 있는 컵, 구슬찾기에 실패한 컵의 3가지 경우의 이미지를 준비  
 		img = new ImageIcon[3];
 		final String imgPath = "./Common/ThreeCupGame/image/";
 		final String PathImgCup  = imgPath + "cup.jpg";
@@ -75,7 +75,6 @@ public class ThreeCupGamePanel extends JPanel implements ActionListener
 		this.add( cup[1] );
 		this.add( cup[2] );
 
-		// 컵 3개 입력 버튼 초기화  
 		button = new JButton[3];
 		button[0] = new JButton( "                          1                           " );
 		button[0].addActionListener( this ); 
@@ -125,6 +124,28 @@ public class ThreeCupGamePanel extends JPanel implements ActionListener
 			cup[ player ].setIcon( img[ MISS ] ); 	
 	} 
 	
+	public int getRandomCup()
+	{
+		return (int)( Math.random() * 3 );
+	}
+	
+	public void disableSelection()
+	{
+		button[0].setEnabled( false );
+		button[1].setEnabled( false );
+		button[2].setEnabled( false );
+	}
+
+	public void enableSelection()
+	{
+		cup[0].setIcon( img[ BASE ] ); 
+		cup[1].setIcon( img[ BASE ] ); 
+		cup[2].setIcon( img[ BASE ] ); 	
+		button[0].setEnabled( true );
+		button[1].setEnabled( true );
+		button[2].setEnabled( true );
+	}
+	
 	/**
 	 * 구슬찾기 게임 진행하기 
 	 * @param event : 참여자의 구슬찾기 선택 결과 
@@ -132,7 +153,7 @@ public class ThreeCupGamePanel extends JPanel implements ActionListener
 	public void actionPerformed( ActionEvent event )  
 	{
 		// 컵 3개 중 하나에 임의로 구슬을 숨기기 
-		this.ball = (int)( Math.random() * 3 );
+		this.ball = getRandomCup();
 		// 참여자는 구슬을 숨긴 컵을 맞추기 
 		this.player = this.selectCup( event );
 		// 승패 결과를 GUI 화면에 업데이트 
@@ -140,9 +161,7 @@ public class ThreeCupGamePanel extends JPanel implements ActionListener
 		
 		// 다음 판은 잠시 대기 
 		timer.start();		
-		button[0].setEnabled( false );
-		button[1].setEnabled( false );
-		button[2].setEnabled( false );
+		disableSelection();
 	}	
 	
 	/**
@@ -157,12 +176,7 @@ public class ThreeCupGamePanel extends JPanel implements ActionListener
 		{
 			timer.stop();			
 			// 컵에 구슬 숨기고 구슬찾기 선택 허용
-			cup[0].setIcon( img[ BASE ] ); 
-			cup[1].setIcon( img[ BASE ] ); 
-			cup[2].setIcon( img[ BASE ] ); 	
-			button[0].setEnabled( true );
-			button[1].setEnabled( true );
-			button[2].setEnabled( true );
+			enableSelection();
 		}
 	}
 }
