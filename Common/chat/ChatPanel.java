@@ -33,7 +33,6 @@ public class ChatPanel extends JPanel implements ActionListener
 		JScrollPane scroll = new JScrollPane( chatWindow );
 		scroll.setPreferredSize( new Dimension( 290, 360 ) );	
 		add( scroll );
-		// 입력창 초기화 
 		inputField = new JTextField();
 		inputField.setPreferredSize( new Dimension( 290, 30 ) );		
 		inputField.addActionListener( this );	
@@ -51,10 +50,8 @@ public class ChatPanel extends JPanel implements ActionListener
 	@Override
 	public void actionPerformed( ActionEvent e )
 	{
-		// 입력창에서 대화 입력 내용을 가져오기 
 		String userUtterance = inputField.getText();
 		inputField.setText( "" );
-		// 대화 입력 내용을 채팅창에 출력 
 		chatWindow.append( "[사용자] " + userUtterance + "\n" );
 		chatWindow.setCaretPosition( chatWindow.getText().length() );
 	}
